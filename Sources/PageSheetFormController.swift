@@ -43,8 +43,11 @@ public class PageSheetFormController: UIViewController {
         self.sendButton?.setTitle(sendButtonText, for: UIControlState.normal)
         composeTitleLabel?.text = titleText
         composeTextView?.text = initialText
-        
-        
+    }
+    
+    override public func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    
         // Start keyboard display / hidden notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
