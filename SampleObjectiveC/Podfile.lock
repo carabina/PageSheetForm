@@ -1,0 +1,16 @@
+PODS:
+  - PageSheetForm (1.0)
+
+DEPENDENCIES:
+  - PageSheetForm (from `../`)
+
+EXTERNAL SOURCES:
+  PageSheetForm:
+    :path: ../
+
+SPEC CHECKSUMS:
+  PageSheetForm: 4d6ea043b47321c2819e360f873c6c361491e0f0
+
+PODFILE CHECKSUM: f9fc6af227b3415aa6e0b74771ec0cc28772b897
+
+COCOAPODS: 1.3.0.beta.3
