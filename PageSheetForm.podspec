@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'PageSheetForm'
-  s.version = '1.0'
+  s.version = '1.1'
   s.license = 'MIT'
   s.summary = 'PageSheetForm is a PageSheet style form.'
   s.homepage = 'https://github.com/tichise/PageSheetForm'
