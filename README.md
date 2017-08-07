@@ -6,6 +6,10 @@ PageSheetForm is a PageSheet style form.
 iPhone
 <img src="https://user-images.githubusercontent.com/43707/29010740-6c126464-7b68-11e7-9a7d-a8a7d2e973e0.png" width="160px">
 
+iPad
+<img src="https://user-images.githubusercontent.com/43707/29011143-b37d892a-7b6b-11e7-9df5-28a0b8bdfc83.png" width="160px">
+
+<img src="https://user-images.githubusercontent.com/43707/29011151-c7a805c4-7b6b-11e7-91e1-b15913d46938.png" width="160px">
 
 
 ### Examples
