@@ -195,7 +195,6 @@ public class PageSheetFormController: UIViewController {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 45))
         toolbar.barStyle = .default
         toolbar.backgroundColor = UIColor.white
-        toolbar.tintColor = UIColor.black
         
         if (isPreview) {
             toolbar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "プレビュー", style: .done, target: self, action: #selector(self.preview))]
