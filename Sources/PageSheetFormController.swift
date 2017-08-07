@@ -13,11 +13,10 @@ public class PageSheetFormController: UIViewController {
     private var titleSize:CGFloat?
     private var buttonSize:CGFloat?
 
-    @IBOutlet var composeTitleLabel:UILabel?
     @IBOutlet var composeTextView:UITextView?
     
-    @IBOutlet var cancelButton:UIButton?
-    @IBOutlet var sendButton:UIButton?
+    @IBOutlet var cancelButton:UIBarButtonItem?
+    @IBOutlet var sendButton:UIBarButtonItem?
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
@@ -42,18 +41,17 @@ public class PageSheetFormController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        self.cancelButton?.setTitle(cancelButonText, for: UIControlState.normal)
-        self.sendButton?.setTitle(sendButtonText, for: UIControlState.normal)
-        composeTitleLabel?.text = titleText
+        setUpCancelButton()
+        setUpSendButton()
+        
+        
+        self.navigationItem.title = titleText
         
         if (titleSize != nil) {
-            composeTitleLabel?.font = composeTitleLabel?.font.withSize(titleSize!)
+            self.navigationController?.navigationBar.titleTextAttributes
+                = [NSFontAttributeName: UIFont.systemFont(ofSize: titleSize!)]
         }
-        
-        if (buttonSize != nil) {
-            cancelButton?.titleLabel?.font = UIFont.systemFont(ofSize: buttonSize!)
-            sendButton?.titleLabel?.font = UIFont.systemFont(ofSize: buttonSize!)
-        }
+    
         
         composeTextView?.text = initialText
     }
@@ -95,14 +93,14 @@ public class PageSheetFormController: UIViewController {
         self.buttonSize = size
     }
     
-    @IBAction public func cancel() {
+    @objc private func cancel(sender:UIBarButtonItem) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
         self.dismiss(animated: true, completion:nil)
     }
     
-    @IBAction public func send() {
+    @objc private func send(sender:UIBarButtonItem) {
         if completionHandler != nil {
             completionHandler!((composeTextView?.text)!)
         }
@@ -138,5 +136,25 @@ public class PageSheetFormController: UIViewController {
         UIView.animate(withDuration: duration, animations: {() -> Void in
             self.view.layoutIfNeeded()
         })
+    }
+    
+    func setUpCancelButton() {
+        let leftButton = UIBarButtonItem(title: cancelButonText, style: UIBarButtonItemStyle.plain, target: self, action:#selector(PageSheetFormController.cancel(sender:)))
+        
+        if (buttonSize != nil) {
+            leftButton.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: buttonSize!)], for: UIControlState.normal)
+        }
+        
+        self.navigationItem.leftBarButtonItem = leftButton
+    }
+    
+    func setUpSendButton() {
+        let rightButton = UIBarButtonItem(title: sendButtonText, style: UIBarButtonItemStyle.plain, target: self, action: #selector(PageSheetFormController.send(sender:)))
+        
+        if (buttonSize != nil) {
+            rightButton.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: buttonSize!)], for: UIControlState.normal)
+        }
+        
+        self.navigationItem.rightBarButtonItem = rightButton
     }
 }

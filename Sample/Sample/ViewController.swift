@@ -29,6 +29,10 @@ class ViewController: UIViewController {
         pageSheetFormController.setInitialText((self.baseTextView?.text)!)
         pageSheetFormController.setTitleText("Title")
         pageSheetFormController.setCancelButtonText("Cancel")
+        
+        // pageSheetFormController.setTitleSize(20) // default 15
+        // pageSheetFormController.setButtonSize(20) // default 15
+        
         pageSheetFormController.setSendButtonText("Send")
         pageSheetFormController.completionHandler = { sendText in
             
@@ -56,7 +60,9 @@ class ViewController: UIViewController {
             
             self.dismiss(animated: true, completion: nil)
         };
-        present(pageSheetFormController, animated: true, completion: nil)
+        
+        let navigationController = UINavigationController(rootViewController: pageSheetFormController)        
+        present(navigationController, animated: true, completion: nil)
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {

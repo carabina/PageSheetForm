@@ -11,6 +11,7 @@
         <!--Page Sheet Form Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PageSheetFormController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="PageSheetFormController" customModule="PageSheetForm" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -20,47 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="err-IC-gAP">
-                                <rect key="frame" x="10" y="30" width="300" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jf-I1-n5l">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="IfC-Ll-Liz"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="cancel" destination="BYZ-38-t0r" eventType="touchDown" id="ILx-Vy-BDZ"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpS-iJ-5lR">
-                                        <rect key="frame" x="133.5" y="5" width="33" height="20"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxn-Ak-A9r">
-                                        <rect key="frame" x="220" y="0.0" width="80" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="gCv-sr-2V7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="Send"/>
-                                        <connections>
-                                            <action selector="send" destination="BYZ-38-t0r" eventType="touchDown" id="F80-kh-Qo4"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="wpS-iJ-5lR" firstAttribute="top" secondItem="err-IC-gAP" secondAttribute="top" constant="5" id="1Ec-DR-Blm"/>
-                                    <constraint firstAttribute="height" constant="30" id="OrP-Ud-GVW"/>
-                                </constraints>
-                            </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S28-ym-so4">
-                                <rect key="frame" x="10" y="70" width="300" height="400"/>
+                                <rect key="frame" x="10" y="30" width="300" height="440"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="xZ0-kC-yQq"/>
@@ -69,30 +33,21 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="err-IC-gAP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="0Fa-AY-xXC"/>
-                            <constraint firstAttribute="trailing" secondItem="S28-ym-so4" secondAttribute="trailing" constant="10" id="0Oi-nv-r4r"/>
-                            <constraint firstItem="err-IC-gAP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Dkm-5e-awt"/>
-                            <constraint firstAttribute="trailing" secondItem="S28-ym-so4" secondAttribute="trailing" constant="10" id="T7N-NT-AT8"/>
-                            <constraint firstItem="S28-ym-so4" firstAttribute="top" secondItem="err-IC-gAP" secondAttribute="bottom" constant="10" id="UGc-cm-M2b"/>
-                            <constraint firstItem="S28-ym-so4" firstAttribute="top" secondItem="err-IC-gAP" secondAttribute="bottom" constant="10" id="aDZ-kp-Ff9"/>
-                            <constraint firstAttribute="trailing" secondItem="err-IC-gAP" secondAttribute="trailing" constant="10" id="aJu-QH-ef2"/>
-                            <constraint firstItem="err-IC-gAP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="kB3-H1-46B"/>
+                            <constraint firstItem="S28-ym-so4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="1t9-2r-ART"/>
+                            <constraint firstItem="S28-ym-so4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="FaM-0m-Jjv"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="S28-ym-so4" secondAttribute="bottom" constant="10" id="l3A-pd-nI9"/>
-                            <constraint firstItem="S28-ym-so4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="sgj-NS-21j"/>
-                            <constraint firstItem="S28-ym-so4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="w4B-bn-MPb"/>
+                            <constraint firstAttribute="trailing" secondItem="S28-ym-so4" secondAttribute="trailing" constant="10" id="vSa-9V-mYQ"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="gQA-Ty-Elu"/>
                     <connections>
                         <outlet property="bottomConstraint" destination="l3A-pd-nI9" id="EAr-ic-FYV"/>
-                        <outlet property="cancelButton" destination="9jf-I1-n5l" id="ppZ-Qw-tDq"/>
                         <outlet property="composeTextView" destination="S28-ym-so4" id="s5t-0B-d0g"/>
-                        <outlet property="composeTitleLabel" destination="wpS-iJ-5lR" id="fLq-Fa-SH4"/>
-                        <outlet property="sendButton" destination="Zxn-Ak-A9r" id="I1v-T9-saG"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4.5" y="-637.5"/>
+            <point key="canvasLocation" x="173" y="-977"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
