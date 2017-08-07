@@ -51,6 +51,8 @@
         [self dismissViewControllerAnimated:true completion:nil];
     }];
 
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:photoPreviewViewController];
+    [navigationController setModalPresentationStyle:UIModalPresentationPageSheet];
     [self presentViewController:pageSheetFormController animated:true completion:nil];
 }
 
