@@ -197,7 +197,7 @@ public class PageSheetFormController: UIViewController {
         toolbar.backgroundColor = UIColor.white
         
         if (isPreview) {
-            toolbar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "プレビュー", style: .done, target: self, action: #selector(self.preview))]
+            toolbar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: self.previewPageTitle, style: .done, target: self, action: #selector(self.preview))]
         }
         toolbar.sizeToFit()
         composeTextView?.inputAccessoryView = toolbar
