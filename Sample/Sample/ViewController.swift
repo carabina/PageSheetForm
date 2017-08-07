@@ -61,7 +61,8 @@ class ViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         };
         
-        let navigationController = UINavigationController(rootViewController: pageSheetFormController)        
+        let navigationController = UINavigationController(rootViewController: pageSheetFormController)
+        navigationController.modalPresentationStyle = UIModalPresentationStyle.pageSheet
         present(navigationController, animated: true, completion: nil)
     }
     
