@@ -20,6 +20,8 @@ PageSheetForm is a PageSheet style form.
 let pageSheetFormController = PageSheetFormController.instantiate()
 pageSheetFormController.setInitialText((self.baseTextView?.text)!)
 pageSheetFormController.setTitleText("Title")
+pageSheetFormController.setIsPreview(true)
+pageSheetFormController.setPreviewPageTitle("Preview")
 pageSheetFormController.setCancelButtonText("Cancel")
 pageSheetFormController.setSendButtonText("Send")
 // pageSheetFormController.setTitleSize(20) // default 15
@@ -62,6 +64,8 @@ present(navigationController, animated: true, completion: nil)
 @import PageSheetForm;
 
 __weak PageSheetFormController *pageSheetFormController = [PageSheetFormController instantiate];
+    [pageSheetFormController setIsPreview:true];
+    [pageSheetFormController setPreviewPageTitle:@"Preview"];
     [pageSheetFormController setTitleText:@"Title"];
     [pageSheetFormController setCancelButtonText:@"Cancel"];
     [pageSheetFormController setSendButtonText:@"Send"];
