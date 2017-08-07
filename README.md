@@ -2,6 +2,12 @@
 
 PageSheetForm is a PageSheet style form.
 
+### Image
+iPhone
+<img src="https://user-images.githubusercontent.com/43707/29010740-6c126464-7b68-11e7-9a7d-a8a7d2e973e0.png" width="160px">
+
+
+
 ### Examples
 
 #### Swift
@@ -12,6 +18,8 @@ pageSheetFormController.setInitialText((self.baseTextView?.text)!)
 pageSheetFormController.setTitleText("Title")
 pageSheetFormController.setCancelButtonText("Cancel")
 pageSheetFormController.setSendButtonText("Send")
+// pageSheetFormController.setTitleSize(20) // default 15
+// pageSheetFormController.setButtonSize(20) // default 15
 pageSheetFormController.completionHandler = { sendText in
     
     if (sendText.characters.count > 20) {
@@ -38,7 +46,9 @@ pageSheetFormController.completionHandler = { sendText in
     
     self.dismiss(animated: true, completion: nil)
 };
-present(pageSheetFormController, animated: true, completion: nil)
+
+let navigationController = UINavigationController(rootViewController: pageSheetFormController)        
+present(navigationController, animated: true, completion: nil)
 ```
 
 #### ObjectiveC
