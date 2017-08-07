@@ -168,7 +168,6 @@ public class PageSheetFormController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightButton
     }
     
-    // プレビューへ移動する
     func preview() {
         performSegue(withIdentifier: seguePushPreview, sender: nil)
     }
@@ -182,13 +181,10 @@ public class PageSheetFormController: UIViewController {
     }
     
     func setUpComposeTextView(_ defaultString: String) {
-        // Bodyスタイルのディスクリプタを生成
         let bodyFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body)
         
-        // ディスクリプタからフォントを生成
         let bodyFont = UIFont(descriptor: bodyFontDescriptor, size: 0.0)
         
-        // 説明文入力エリアの行間と文字サイズを設定する
         let paragrahStyle = NSMutableParagraphStyle()
         paragrahStyle.lineSpacing = 10.0
         let attributedText = NSMutableAttributedString(string: defaultString)
