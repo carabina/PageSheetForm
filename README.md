@@ -51,7 +51,8 @@ pageSheetFormController.completionHandler = { sendText in
     self.dismiss(animated: true, completion: nil)
 };
 
-let navigationController = UINavigationController(rootViewController: pageSheetFormController)        
+let navigationController = UINavigationController(rootViewController: pageSheetFormController)
+navigationController.modalPresentationStyle = UIModalPresentationStyle.pageSheet
 present(navigationController, animated: true, completion: nil)
 ```
 
@@ -87,6 +88,8 @@ __weak PageSheetFormController *pageSheetFormController = [PageSheetFormControll
         [self dismissViewControllerAnimated:true completion:nil];
     }];
 
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:photoPreviewViewController];
+    [navigationController setModalPresentationStyle:UIModalPresentationPageSheet];
     [self presentViewController:pageSheetFormController animated:true completion:nil];
 ```
 
