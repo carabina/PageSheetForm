@@ -9,7 +9,10 @@ public class PageSheetFormController: UIViewController {
     private var cancelButonText:String?
     private var sendButtonText:String?
     private var titleText:String?
-    
+
+    private var titleSize:CGFloat?
+    private var buttonSize:CGFloat?
+
     @IBOutlet var composeTitleLabel:UILabel?
     @IBOutlet var composeTextView:UITextView?
     
@@ -42,6 +45,16 @@ public class PageSheetFormController: UIViewController {
         self.cancelButton?.setTitle(cancelButonText, for: UIControlState.normal)
         self.sendButton?.setTitle(sendButtonText, for: UIControlState.normal)
         composeTitleLabel?.text = titleText
+        
+        if (titleSize != nil) {
+            composeTitleLabel?.font = composeTitleLabel?.font.withSize(titleSize!)
+        }
+        
+        if (buttonSize != nil) {
+            cancelButton?.titleLabel?.font = UIFont.systemFont(ofSize: buttonSize!)
+            sendButton?.titleLabel?.font = UIFont.systemFont(ofSize: buttonSize!)
+        }
+        
         composeTextView?.text = initialText
     }
     
@@ -72,6 +85,14 @@ public class PageSheetFormController: UIViewController {
     
     public func setSendButtonText(_ text:String) {
         self.sendButtonText = text
+    }
+    
+    public func setTitleSize(_ size:CGFloat) {
+        self.titleSize = size
+    }
+    
+    public func setButtonSize(_ size:CGFloat) {
+        self.buttonSize = size
     }
     
     @IBAction public func cancel() {
