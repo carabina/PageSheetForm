@@ -32,7 +32,9 @@ class ViewController: UIViewController {
         
         // pageSheetFormController.setTitleSize(20) // default 15
         // pageSheetFormController.setButtonSize(20) // default 15
-        
+
+        pageSheetFormController.setIsPreview(true)
+        pageSheetFormController.setPreviewPageTitle("Preview")
         pageSheetFormController.setSendButtonText("Send")
         pageSheetFormController.completionHandler = { sendText in
             

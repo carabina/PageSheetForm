@@ -11,7 +11,6 @@
         <!--Page Sheet Form Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PageSheetFormController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="PageSheetFormController" customModule="PageSheetForm" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -43,10 +42,56 @@
                     <connections>
                         <outlet property="bottomConstraint" destination="l3A-pd-nI9" id="EAr-ic-FYV"/>
                         <outlet property="composeTextView" destination="S28-ym-so4" id="s5t-0B-d0g"/>
+                        <segue destination="A39-J9-OzW" kind="push" identifier="SeguePushPreview" id="71E-7o-9W4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="173" y="-977"/>
+        </scene>
+        <!--プレビュー-->
+        <scene sceneID="dev-pu-iHR">
+            <objects>
+                <viewController storyboardIdentifier="PreviewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A39-J9-OzW" customClass="PreviewViewController" customModule="PageSheetForm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QiP-Fk-igc"/>
+                        <viewControllerLayoutGuide type="bottom" id="f7g-td-rQT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="PreviewController" id="fpO-fJ-GHy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hne-hs-Iat">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="A39-J9-OzW" id="hrV-km-py1"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f7g-td-rQT" firstAttribute="top" secondItem="hne-hs-Iat" secondAttribute="bottom" id="0ZD-rG-Eu9"/>
+                            <constraint firstItem="f7g-td-rQT" firstAttribute="top" secondItem="hne-hs-Iat" secondAttribute="bottom" id="Ayq-na-DuS"/>
+                            <constraint firstItem="hne-hs-Iat" firstAttribute="top" secondItem="fpO-fJ-GHy" secondAttribute="top" id="J5I-IE-Wed"/>
+                            <constraint firstItem="hne-hs-Iat" firstAttribute="leading" secondItem="fpO-fJ-GHy" secondAttribute="leading" id="NbS-13-wGa"/>
+                            <constraint firstItem="hne-hs-Iat" firstAttribute="top" secondItem="fpO-fJ-GHy" secondAttribute="top" id="T2f-bI-3Cd"/>
+                            <constraint firstItem="hne-hs-Iat" firstAttribute="leading" secondItem="fpO-fJ-GHy" secondAttribute="leading" id="XAO-Ld-Hgx"/>
+                            <constraint firstAttribute="trailing" secondItem="hne-hs-Iat" secondAttribute="trailing" id="YYT-MJ-vKi"/>
+                            <constraint firstAttribute="trailing" secondItem="hne-hs-Iat" secondAttribute="trailing" id="b4i-WQ-uvA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="プレビュー" id="3VS-Oa-6ju">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="gzE-YF-3f9"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="view" destination="fpO-fJ-GHy" id="i5L-9B-0M0"/>
+                        <outlet property="webView" destination="hne-hs-Iat" id="K4E-YR-dl3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mGz-8b-OCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="576" y="-977"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

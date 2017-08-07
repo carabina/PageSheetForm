@@ -5,9 +5,15 @@ import UIKit
 
 public class PageSheetFormController: UIViewController {
     
+    private let seguePushPreview = "SeguePushPreview"
+    
+    private var isPreview:Bool = false
+    
+
     private var initialText:String?
-    private var cancelButonText:String?
-    private var sendButtonText:String?
+    private var previewPageTitle:String = "Preview"
+    private var cancelButonText:String = "Cancel"
+    private var sendButtonText:String = "Send"
     private var titleText:String?
 
     private var titleSize:CGFloat?
@@ -53,7 +59,7 @@ public class PageSheetFormController: UIViewController {
         }
     
         
-        composeTextView?.text = initialText
+        setUpComposeTextView(initialText!)
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -75,6 +81,10 @@ public class PageSheetFormController: UIViewController {
     
     public func setTitleText(_ text:String) {
         self.titleText = text
+    }
+    
+    public func setPreviewPageTitle(_ text:String) {
+        self.previewPageTitle = text
     }
     
     public func setCancelButtonText(_ text:String) {
@@ -156,5 +166,49 @@ public class PageSheetFormController: UIViewController {
         }
         
         self.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    // プレビューへ移動する
+    func preview() {
+        performSegue(withIdentifier: seguePushPreview, sender: nil)
+    }
+    
+    override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == seguePushPreview) {
+            let previewViewController: PreviewViewController? = segue.destination as? PreviewViewController
+            previewViewController?.previewPageTitle = previewPageTitle
+            previewViewController?.setHtml(html: (composeTextView?.text)!)
+        }
+    }
+    
+    func setUpComposeTextView(_ defaultString: String) {
+        // Bodyスタイルのディスクリプタを生成
+        let bodyFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body)
+        
+        // ディスクリプタからフォントを生成
+        let bodyFont = UIFont(descriptor: bodyFontDescriptor, size: 0.0)
+        
+        // 説明文入力エリアの行間と文字サイズを設定する
+        let paragrahStyle = NSMutableParagraphStyle()
+        paragrahStyle.lineSpacing = 10.0
+        let attributedText = NSMutableAttributedString(string: defaultString)
+        attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragrahStyle, range: NSRange(location: 0, length: attributedText.length))
+        attributedText.addAttribute(NSFontAttributeName, value: bodyFont, range: NSRange(location: 0, length: attributedText.length))
+        composeTextView?.attributedText = attributedText
+        
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 45))
+        toolbar.barStyle = .default
+        toolbar.backgroundColor = UIColor.white
+        toolbar.tintColor = UIColor.black
+        
+        if (isPreview) {
+            toolbar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "プレビュー", style: .done, target: self, action: #selector(self.preview))]
+        }
+        toolbar.sizeToFit()
+        composeTextView?.inputAccessoryView = toolbar
+    }
+    
+    public func setIsPreview (_ isPreview:Bool) {
+        self.isPreview = isPreview
     }
 }
